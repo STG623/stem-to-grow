@@ -20,7 +20,7 @@
     }
 
     header {
-      background-color: #40b3a2;
+      background-color: pink;
       color: white;
       padding: 20px 20px 20px 100px;
       text-align: center;
@@ -40,34 +40,27 @@
       height: auto;
     }
 
-    .top-buttons {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-    }
-
-    .top-buttons a {
-      background-color: white;
-      color: #40b3a2;
-      padding: 8px 12px;
-      margin-right: 10px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: 0.3s ease;
-    }
-
-    .top-buttons a:hover {
-      background-color: #2e8b85;
-      color: white;
-    }
-
     nav {
-      background-color: #2e8b85;
+      background-color: darkviolet;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      position: relative;
     }
 
     nav a {
@@ -76,10 +69,40 @@
       margin: 0 15px;
       font-weight: bold;
       transition: 0.3s;
+      display: inline-block;
+      padding: 10px;
     }
 
     nav a:hover {
       text-decoration: underline;
+    }
+
+    nav li ul {
+      display: none;
+      position: absolute;
+      background-color:darkviolet;
+      top: 100%;
+      left: 0;
+      padding: 0;
+      min-width: 150px;
+      z-index: 1000;
+    }
+
+    nav li:hover ul {
+      display: block;
+    }
+
+    nav li ul li {
+      width: 100%;
+    }
+
+    nav li ul li a {
+      padding: 10px 15px;
+      display: block;
+    }
+
+    nav li ul li a:hover {
+      background-color: darkmagenta;
     }
 
     .hero {
@@ -141,6 +164,25 @@
       flex-shrink: 0;
     }
 
+    .book-now {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ff69b4;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+      z-index: 9999;
+    }
+
+    .book-now:hover {
+      background-color: #e0559c;
+    }
+
     footer {
       background-color: #f3f3f3;
       text-align: center;
@@ -154,18 +196,17 @@
         padding: 20px;
       }
 
-      nav {
+      nav ul {
         flex-direction: column;
+        align-items: center;
       }
 
       nav a {
         margin: 10px 0;
       }
 
-      .top-buttons {
+      nav li ul {
         position: static;
-        margin-top: 10px;
-        text-align: center;
       }
 
       .header-content {
@@ -180,10 +221,6 @@
 </head>
 <body>
   <header>
-    <div class="top-buttons">
-      <a href="#about">About Us</a>
-      <a href="#contact">Contact Us</a>
-    </div>
     <div class="header-content">
       <img src="logo.jpg" alt="STG" class="logo">
       <div>
@@ -194,10 +231,32 @@
   </header>
 
   <nav>
-    <a href="#home">Home</a>
-    <a href="#activities">Activities</a>
-    <a href="#partnerships">Partnerships</a>
-    <a href="#birthdays">Our Birthday Packages</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Activities</a>
+        <ul>
+          <li><a href="slime.html">Slime</a></li>
+          <li><a href="pottery.html">Pottery</a></li>
+          <li><a href="canvas.html">Canvas Art</a></li>
+          <li><a href="science.html">Science Demos</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Partnerships</a>
+        <ul>
+          <li><a href="hotels.html">Hotels</a></li>
+          <li><a href="schools.html">Schools</a></li>
+          <li><a href="malls.html">Malls</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Birthdays</a>
+        <ul>
+          <li><a href="standard.html">Standard</a></li>
+          <li><a href="premium.html">Premium</a></li>
+          <li><a href="custom.html">Custom Themes</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
   </nav>
 
   <div class="hero">
@@ -205,11 +264,10 @@
   </div>
 
   <div class="category-grid">
-    <div class="category-box">Slime</div>
-    <div class="category-box">Pottery</div>
-    <div class="category-box">Painting</div>
+    <div class="category-box"><a href="about.html" style="text-decoration:none; color:inherit;">About Us</a></div>
+    <div class="category-box"><a href="contact.html" style="text-decoration:none; color:inherit;">Contact Us</a></div>
     <div class="category-box">Workshops</div>
-    <div class="category-box">Parties</div>
+    <div class="category-box">Book Now</div>
   </div>
 
   <div class="section-title">Recommended For You</div>
@@ -220,9 +278,12 @@
     <img src="p4.jpg" alt="Activity 4">
   </div>
 
+  <a class="book-now" href="contact.html">Book Now</a>
+
   <footer>
     &copy; 2025 STEM TO GROW. All rights reserved.
   </footer>
 </body>
 </html>
+
 
