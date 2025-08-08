@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Partnerships - STEM TO GROW</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Comic Neue',cursive;background:#fff0f6;color:#4b2c5e;overflow-x:hidden}
+    .animated-bg{position:fixed;inset:0;overflow:hidden;z-index:-1;background:linear-gradient(to bottom,#ffeaa7,#fab1a0,#f8a5c2)}
+    .bubble{position:absolute;border-radius:50%;opacity:.7;animation:float 20s linear infinite}
+    @keyframes float{from{transform:translateY(100vh) scale(.5)}to{transform:translateY(-10vh) scale(1.2)}}
+    .bubble:nth-child(1){width:60px;height:60px;background:#fd79a8;left:10%;animation-duration:18s}
+    .bubble:nth-child(2){width:100px;height:100px;background:#55efc4;left:25%;animation-duration:25s}
+    .bubble:nth-child(3){width:40px;height:40px;background:#ffeaa7;left:40%;animation-duration:15s}
+    .bubble:nth-child(4){width:80px;height:80px;background:#74b9ff;left:60%;animation-duration:22s}
+    .bubble:nth-child(5){width:50px;height:50px;background:#fdcb6e;left:75%;animation-duration:20s}
+    .bubble:nth-child(6){width:90px;height:90px;background:#a29bfe;left:85%;animation-duration:28s}
+    header{background:linear-gradient(90deg,#ffb347,#ffcc33);color:#fff;padding:20px 20px 20px 100px;text-align:center;border-bottom:5px solid #ff69b4}
+    .header-content{display:flex;align-items:center;justify-content:center;gap:15px;flex-wrap:wrap}
+    .logo{width:70px;height:auto;border-radius:50%}
+    nav{background:#6c5ce7;display:flex;justify-content:center;flex-wrap:wrap;padding:12px 0;position:sticky;top:0;z-index:999;border-bottom:4px solid #00cec9}
+    nav ul{list-style:none;display:flex;flex-wrap:wrap}
+    nav a{color:#fff;text-decoration:none;margin:0 18px;font-weight:bold;font-size:1.1rem;padding:10px 15px;border-radius:10px;transition:.3s}
+    nav a:hover{background:#fff0f6;color:#fff}
+    .wrap{max-width:1000px;margin:40px auto;padding:0 20px}
+    .card{background:#fff;border-radius:18px;box-shadow:0 6px 12px rgba(0,0,0,.12);border:4px solid #fd79a8;padding:22px;margin-bottom:22px}
+    .card h2{color:#6c5ce7;margin-bottom:10px}
+    .card p{line-height:1.6}
+    footer{background:#6c5ce7;color:#fff;text-align:center;padding:20px;font-size:14px;border-top:4px solid #00cec9;margin-top:40px}
+    @media (max-width:768px){.logo{width:60px}}
+  </style>
+</head>
+<body>
+  <div class="animated-bg">
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+  </div>
+
+  <header>
+    <div class="header-content">
+      <img src="images/logo.png" alt="STG" class="logo">
+      <div>
+        <h1>STEM TO GROW</h1>
+        <p>Partnership Opportunities</p>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#">Workshops</a></li>
+      <li><a href="partnerships.html">Partnerships</a></li>
+      <li><a href="birthdays.html">Birthdays</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="wrap">
+    <section id="hotels" class="card">
+      <h2>Hotels</h2>
+      <p>We offer <strong>long-term partnerships</strong> to design and operate hotel kids’ clubs end-to-end: daily creative schedules, weekend specials, and holiday programs that keep young guests happy while parents relax. We align with your brand standards, handle staffing and materials, and deliver measurable upsides in <strong>family bookings, guest satisfaction</strong>, and reviews.</p>
+    </section>
+
+    <section id="schools" class="card">
+      <h2>Schools</h2>
+      <p>Our school deals include <strong>field trips to our center</strong> for hands-on STEM & art workshops (safety briefings, supervisors, and all materials included). We also support <strong>occasional celebrations</strong> on campus—Graduation, National Day, Science Week—with mobile stations, themed activities, and stage moments tailored to your calendar.</p>
+    </section>
+
+    <section id="malls" class="card">
+      <h2>Malls</h2>
+      <p>We partner with malls for <strong>occasional entertainment shows</strong>, pop-up craft zones, and seasonal activations (Ramadan/Eid, Back-to-School, Winter, etc.). Our setups are flexible to fit atriums or corridors, boost dwell time and foot traffic, and create <strong>memorable, family-friendly experiences</strong> that keep visitors coming back.</p>
+    </section>
+  </main>
+
+  <footer>&copy; 2025 STEM TO GROW. All rights reserved.</footer>
+</body>
+</html>
