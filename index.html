@@ -7,8 +7,11 @@
 <title>STEM TO GROW</title>
 <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <style>
-    /* Custom cursor */
-    body { cursor: url('images/mr-squishy-cursor.png') 60 60, auto; }
+   /* Mr Squishy cursor on clickable items only */
+a, a[href], button, [role="button"], .btn, nav a, .book-now, .contact-form button, .category-box a {
+  cursor: url('images/mr-squishy-cursor.png') 16 16, pointer;
+}
+
     
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
