@@ -8,20 +8,29 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    /*body {
+    
+    body {
       font-family: 'Comic Neue', cursive;
       background-color: #fff0f6;
       color: #4b2c5e;
       overflow-x: hidden;
-    }*/
-     body {
-      font-family: 'Comic Neue', cursive;
-      background: url('squishy.png') center center no-repeat fixed;
-      background-size: 500px; /* Adjust size of Mr Squishy */
-      background-color: #fff0f6; /* Light background behind Squishy */
-      color: #4b2c5e;
-      overflow-x: hidden;
+      position: relative;
     }
+
+    /* Mr Squishy watermark background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('squishy.png') center center no-repeat;
+      background-size: 500px;
+      opacity: 0.08; /* faded look */
+      z-index: -1;
+    }
+
     /* 🎨 Animated Background */
     .animated-bg { position: fixed; inset: 0; overflow: hidden; z-index: -1;
       background: linear-gradient(to bottom, #ffeaa7, #fab1a0, #f8a5c2); }
@@ -59,17 +68,6 @@
       animation: pulseText 2s infinite; }
     @keyframes pulseText { 0%{transform:scale(1);opacity:1} 50%{transform:scale(1.05);opacity:.85} 100%{transform:scale(1);opacity:1} }
 
-    .category-grid { display:flex; justify-content:center; flex-wrap:wrap; gap:25px; padding:30px 20px; }
-    .category-box { width:120px; height:60px; background:#ffeaa7; color:#2d3436; display:flex; align-items:center; justify-content:center;
-      font-size:1.1rem; border-radius:20px; font-weight:bold; box-shadow:0 6px 10px rgba(0,0,0,.15); transition:.3s; }
-    .category-box:hover{ background:#fab1a0; transform:scale(1.05); }
-    .category-box a{ text-decoration:none; color:inherit; }
-
-    .birthday-section { background:#fff0f6; padding:40px 20px; text-align:center; border-top:6px solid #fd79a8; border-bottom:6px solid #ffcc33; }
-    .birthday-section h2 { font-size:2rem; color:#6c5ce7; margin-bottom:12px; }
-    .birthday-gallery { display:flex; flex-wrap:wrap; justify-content:center; gap:25px; margin-top:20px; }
-    .birthday-gallery img { width:300px; height:200px; object-fit:cover; border-radius:20px; box-shadow:0 6px 10px rgba(0,0,0,.2); }
-
     .contact-section { background:#dfe6e9; color:#2d3436; padding:50px 20px; text-align:center; border-top:5px solid #ff7675; }
     .contact-section h2 { margin-bottom: 20px; font-size: 2rem; color: #6c5ce7; }
     .contact-form { max-width:500px; margin:auto; display:flex; flex-direction:column; gap:15px; }
@@ -84,12 +82,11 @@
     footer { background:#6c5ce7; color:#fff; text-align:center; padding:20px; font-size:14px; border-top:4px solid #00cec9; margin-top:40px; }
 
     @media (max-width:768px){ .hero{height:300px} .hero b{font-size:1.6rem} .logo{width:60px} }
-    
-/* Mr Squishy cursor on clickable items only */
-a, a[href], button, [role="button"], .btn, nav a, .book-now, .contact-form button, .category-box a {
-  cursor: url('squishy.png') 40 40, pointer;
-}
 
+    /* Mr Squishy cursor on clickable items only */
+    a, a[href], button, [role="button"], .btn, nav a, .book-now, .contact-form button {
+      cursor: url('squishy.png') 40 40, pointer;
+    }
   </style>
 </head>
 <body>
@@ -124,22 +121,6 @@ a, a[href], button, [role="button"], .btn, nav a, .book-now, .contact-form butto
 
   <div class="hero" id="home"><b>Inspiring Young Minds Through Hands-On Workshops</b></div>
 
-  <!--<div class="category-grid">
-    <div class="category-box"><a href="partnerships.html">Partnerships</a></div>
-    <div class="category-box"><a href="birthdays.html">Birthdays</a></div>
-    <div class="category-box"><a href="#contact">Book Now</a></div>
-  </div>-->
-
- <!-- <section class="birthday-section">
-    <h2>🎉 Creative Birthday Packages 🎉</h2>
-    <p>Celebrate your child's special day with hands-on fun and creative activities!</p>
-    <div class="birthday-gallery">
-      <img src="images/p1.png" alt="Birthday Party 1">
-      <img src="images/p2.png" alt="Birthday Party 2">
-    </div>
-    <p style="margin-top:14px;"><a href="birthdays.html" style="color:#e84393; font-weight:bold;">See packages →</a></p>
-  </section>-->
-
   <div id="contact" class="contact-section">
     <h2>Contact Us</h2>
     <p>Send us your inquiry or book a workshop. We will get back to you soon!</p>
@@ -157,3 +138,4 @@ a, a[href], button, [role="button"], .btn, nav a, .book-now, .contact-form butto
   <footer>&copy; 2025 STEM TO GROW. All rights reserved.</footer>
 </body>
 </html>
+
