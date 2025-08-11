@@ -18,24 +18,23 @@
       z-index: 0;
     }
 
-    /* 🎨 Animated Gradient Background (BOTTOM layer, fixed for whole page) */
+    /* 🎨 Animated Bubbles Background */
     .animated-bg {
-      position: fixed;      /* stays put while scrolling */
+      position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
       overflow: hidden;
-      z-index: -1;           /* ⬅︎ moved ABOVE squishy pattern, BELOW content */
-      background: #ffffff /*linear-gradient(to bottom, #ffeaa7, #fab1a0, #f8a5c2);*/
-      pointer-events: none; /* never block clicks */
+      z-index: -1;
+      background: #ffffff;
+      pointer-events: none;
     }
 
-    /* Mixed image + color bubbles */
     .bubble {
       position: absolute;
       width: var(--size, 70px);
       height: var(--size, 70px);
       left: var(--x, 50%);
-      bottom: -120px;       /* start below viewport */
+      bottom: -120px;
       border-radius: 50%;
       opacity: 0.9;
       animation: float var(--dur, 22s) linear infinite;
@@ -43,19 +42,17 @@
       background-position: center;
       background-repeat: no-repeat;
       filter: drop-shadow(0 8px 14px rgba(0,0,0,0.18));
-      will-change: transform;
     }
-    .bubble::after {        /* glossy highlight */
+    .bubble::after {
       content: "";
       position: absolute;
       top: 8%; left: 12%;
       width: 40%; height: 40%;
       border-radius: 50%;
-      background:  radial-gradient(ellipse at center, rgba(255,255,255,.7), rgba(255,255,255,0) 60%);
+      background: radial-gradient(ellipse at center, rgba(255,255,255,.7), rgba(255,255,255,0) 60%);
     }
-    /* Image bubbles (using Squishy) */
+
     .bubble.img-squishy { background-image: url('squishy.png'); }
-    /* Colored bubbles */
     .bubble.pink   { background-color: #ffd4ef; }
     .bubble.purple { background-color: #d7c5ff; }
     .bubble.white  { background-color: #ffffff; }
@@ -65,23 +62,17 @@
       to   { transform: translateY(-120vh) scale(1.1); }
     }
 
-    /* 🧸 Mr Squishy Pattern Layer (lowest visible layer) 
+    /* Mr Squishy pattern background */
     .squishy-bg {
       position: fixed;
       inset: 0;
       background-image: url('squishy.png'), url('squishy.png');
       background-size: 250px;
       background-repeat: repeat;
-      background-position: 0 0, 125px 125px; /* offset for checker pattern 
+      background-position: 0 0, 125px 125px;
       opacity: 0.08;
-      z-index: -1;          /* ⬅︎ behind the bubbles 
-      pointer-events: none; /* never block clicks 
-    }*/
-
-    /* ⬆️ Ensure content sits above bubbles */
-    header, nav, .hero, .contact-section, footer {
-      position: relative;
-      z-index: -1;           /* content always above bubbles */
+      z-index: -2;
+      pointer-events: none;
     }
 
     header {
@@ -114,21 +105,35 @@
     nav ul { list-style: none; display: flex; flex-wrap: wrap; }
     nav li { position: relative; }
     nav a {
-      color: #fff; text-decoration: none; margin: 0 18px;
-      font-weight: bold; font-size: 1.1rem;
-      padding: 10px 15px; border-radius: 10px; transition: 0.3s;
+      color: #fff;
+      text-decoration: none;
+      margin: 0 18px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 10px 15px;
+      border-radius: 10px;
+      transition: 0.3s;
     }
     nav a:hover { background-color: #fff0f6; color: #fff; }
     nav li ul {
-      display: none; position: absolute; background-color: #00b894;
-      top: 100%; left: 0; min-width: 180px; border-radius: 8px; overflow: hidden;
+      display: none;
+      position: absolute;
+      background-color: #00b894;
+      top: 100%;
+      left: 0;
+      min-width: 180px;
+      border-radius: 8px;
+      overflow: hidden;
     }
     nav li:hover ul { display: block; }
-    nav li ul li a { color: white; display: block; padding: 10px 15px; }
+    nav li ul li a {
+      color: white;
+      display: block;
+      padding: 10px 15px;
+    }
     nav li ul li a:hover { background-color: #55efc4; }
 
     .hero {
-     /* background-color: #ffffff;*/
       height: 420px;
       display: flex;
       align-items: center;
@@ -139,7 +144,7 @@
     .hero b {
       font-size: 2.2em;
       color: #4b2c5e;
-     /* background: #ffffff;*/
+      background: #ffffff;
       padding: 18px 32px;
       border-radius: 18px;
       border: 2px solid #4b2c5e;
@@ -222,7 +227,21 @@
   </style>
 </head>
 <body>
-  <!-- Gradient & mixed bubbles (fixed behind entire page, visible on front page) -->
+
+  <!-- 🎵 Kids Song (starts after first click/tap) -->
+  <audio id="bg-music" loop>
+    <source src="kids-song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <script>
+    document.addEventListener('click', function playMusicOnce() {
+      const music = document.getElementById('bg-music');
+      music.play().catch(err => console.log('Autoplay blocked:', err));
+      document.removeEventListener('click', playMusicOnce);
+    });
+  </script>
+
+  <!-- Bubbles -->
   <div class="animated-bg">
     <div class="bubble img-squishy" style="--x:10%; --size:70px; --dur:10s;"></div>
     <div class="bubble pink"        style="--x:22%; --size:110px; --dur:9s;"></div>
@@ -236,7 +255,7 @@
     <div class="bubble img-squishy" style="--x:80%; --size:75px;  --dur:11s;"></div>
   </div>
 
-  <!-- Mr Squishy checker pattern (lowest visible layer) -->
+  <!-- Mr Squishy background -->
   <div class="squishy-bg"></div>
 
   <header>
@@ -283,6 +302,8 @@
      href="https://wa.me/971544553868?text=Hello%2C%20I%20want%20to%20book%20a%20workshop%20at%20STEM%20TO%20GROW!">WhatsApp Us</a>
 
   <footer>&copy; 2025 STEM TO GROW. All rights reserved.</footer>
+
 </body>
 </html>
+
 
