@@ -15,7 +15,7 @@
       color: #4b2c5e;
       overflow-x: hidden;
       position: relative;
-      z-index: 0;
+      z-index: -1;
     }
 
     /* 🎨 Animated Gradient Background (BOTTOM layer, fixed for whole page) */
@@ -26,7 +26,7 @@
       width: 100%;
       height: 100%;        /* cover full viewport */
       overflow: hidden;
-      z-index: -1;         /* lowest layer */
+      z-index: 0;         /* lowest layer */
       background: linear-gradient(to bottom, #ffeaa7, #fab1a0, #f8a5c2);
     }
 
